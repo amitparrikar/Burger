@@ -1,0 +1,37 @@
+.Order {
+
+  border: 1px solid #eee;
+  box-shadow: 0 0 10px #ccc;
+  padding: 10px;
+  margin: 10px;
+  box-sizing: border-box;
+
+  .Ingredient {
+    border-radius: 4px;
+    padding: 5px;
+    margin: 5px;
+    text-transform: capitalize;
+    display: inline-block;
+
+    strong {
+      margin-right: 5px;
+    }
+
+    &.salad {
+      background-color: #e3ffcf;
+      border: 1px solid #50c700;
+    }
+    &.meat {
+      background-color: #ffdac1;
+      border: 1px solid #753306;
+    }
+    &.bacon {
+      background-color: #ffd2c6;
+      border: 1px solid #ce6a4e;
+    }
+    &.cheese {
+      background-color: #fff4bb;
+      border: 1px solid #e2c010;
+    }
+  }
+}
