@@ -2,7 +2,8 @@ export {
   addIngredient,
   removeIngredient,
   initIngredients,
-  fetchIngredientsFailed
+  fetchIngredientsFailed,
+  setIngredients
 } from './burgerBuilderActions';
 
 export {
@@ -23,6 +24,8 @@ export {
   authFail,
   auth,
   authLogout,
+  authDidLogout,
   setAuthRedirectPath,
-  authCheckState
+  authCheckState,
+  authSetTimeout
 } from './authActions';

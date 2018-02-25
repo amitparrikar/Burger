@@ -1,5 +1,5 @@
 import * as actionTypes from './actionTypes';
-import Axios from './../../configs/orders-axios';
+// import Axios from './../../configs/orders-axios';
 
 /**
  * Action creator for addIngredient
@@ -35,11 +35,15 @@ export const fetchIngredientsFailed = () => {
 };
 
 export const initIngredients = () => {
-  return (dispatch) => {
-    Axios.get(`ingredients.json`).then(response => {
-      dispatch(setIngredients(response.data));
-    }).catch(error => {
-      dispatch(fetchIngredientsFailed())
-    });
+  // return (dispatch) => {
+  //   Axios.get(`ingredients.json`).then(response => {
+  //     dispatch(setIngredients(response.data));
+  //   }).catch(error => {
+  //     dispatch(fetchIngredientsFailed())
+  //   });
+  // };
+
+  return {
+    type: actionTypes.INIT_INGREDIENT
   };
 };
