@@ -26,13 +26,19 @@ export const purchaseBurgerStart = () => {
  * Async call to save the Order.
 */
 export const purchaseBurger = (orderData, token) => {
-  return (dispatch) => {
-    Axios.post(`orders.json?auth=${token}`, orderData).then(response => {
-      dispatch(purchaseBurgerSuccess(response.data.name, orderData));
-    }).catch(error => {
-      dispatch(purchaseBurgerFail(error));
-    });
-  };
+  // return (dispatch) => {
+  //   Axios.post(`orders.json?auth=${token}`, orderData).then(response => {
+  //     dispatch(purchaseBurgerSuccess(response.data.name, orderData));
+  //   }).catch(error => {
+  //     dispatch(purchaseBurgerFail(error));
+  //   });
+  // };
+
+  return {
+    type: actionTypes.PURCHASE_BURGER_INIT,
+    orderData,
+    token
+  }
 };
 
 export const purchaseInit = () => {
@@ -62,21 +68,27 @@ export const fetchOrdersStart = () => {
 };
 
 export const fetchOrders = (token, userId) => {
-  return (dispatch) => {
-    const queryParams = `?auth=${token}&orderBy="userId"&equalTo="${userId}"`;
-    Axios.get(`/orders.json${queryParams}`).then(response => {
-      const fetchedOrders = [];
+  // return (dispatch) => {
+  //   const queryParams = `?auth=${token}&orderBy="userId"&equalTo="${userId}"`;
+  //   Axios.get(`/orders.json${queryParams}`).then(response => {
+  //     const fetchedOrders = [];
+  //
+  //     for(let key in response.data) {
+  //       fetchedOrders.push({
+  //         id: key,
+  //         ...response.data[key]
+  //       });
+  //     }
+  //
+  //     dispatch(fetchOrdersSuccess(fetchedOrders));
+  //   }).catch(error => {
+  //     dispatch(fetchOrdersFail(error));
+  //   });
+  // };
 
-      for(let key in response.data) {
-        fetchedOrders.push({
-          id: key,
-          ...response.data[key]
-        });
-      }
-
-      dispatch(fetchOrdersSuccess(fetchedOrders));
-    }).catch(error => {
-      dispatch(fetchOrdersFail(error));
-    });
-  };
+  return {
+    type: actionTypes.FETCH_ORDERS_INIT,
+    token,
+    userId
+  }
 };
